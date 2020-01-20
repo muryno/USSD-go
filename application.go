@@ -15,13 +15,13 @@ func ussd_callback(w http.ResponseWriter, r *http.Request){
 
 	//you can write your logic here
 	if len(text) == 0{
-		w.Write([]byte("CON Welcome to Agrox, Chose your language \n1. English \n2. Yoruba \n3. Igbo \n4. Hausa"))
+		w.Write([]byte("CON Welcome to Agric, Chose your language \n1. English \n2. Yoruba \n3. Igbo \n4. Hausa"))
 		return
 	}else{
 		switch text{
 
 		case "1":
-			w.Write([]byte("CON Welcome to agrox, Press \n1. Request for pickup\n2. Receive agricultural tips \n3.  Chat with us \n4. Go back to Language menu"))
+			w.Write([]byte("CON Welcome to agric, Press \n1. Request for pickup\n2. Receive agricultural tips \n3.  Chat with us \n4. Go back to Language menu"))
 			return
 		case "1*1":
 			w.Write([]byte("CON Please select agricultural you want to move \n1. Rice \n2. Tomato \n3. Maize \n4. Soyabeans \n5. Sweat potato"))
