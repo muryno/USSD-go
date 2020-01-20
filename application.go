@@ -13,16 +13,16 @@ func ussd_callback(w http.ResponseWriter, r *http.Request){
 	_ = fmt.Sprintf("%s,%s,%s",session_id,service_code,phone_number)
 	text := r.FormValue("text")
 	if len(text) == 0{
-		w.Write([]byte("CON Welcome to Agrox, Chose your language \n1. English \n2. Yoruba \n3. Igbo \n.Hausa"))
+		w.Write([]byte("CON Welcome to Agrox, Chose your language \n1. English \n2. Yoruba \n3. Igbo \n4. Hausa"))
 		return
 	}else{
-		switch service_code{
+		switch text{
 
 		case "1":
-			w.Write([]byte("CON Welcome to agrox, Press \n1.Request for pickup\n2. Receive agricultural tips \n3.  Chat with us \n Go back to Language menu"))
+			w.Write([]byte("CON Welcome to agrox, Press \n1. Request for pickup\n2. Receive agricultural tips \n3.  Chat with us \n4. Go back to Language menu"))
 			return
 		case "1*1":
-			w.Write([]byte("CON Please select agricultural you want to move \n1. Rice \n2. Tomato \n3. Maize \n4. Soyabeans \n.5 Sweat potato"))
+			w.Write([]byte("CON Please select agricultural you want to move \n1. Rice \n2. Tomato \n3. Maize \n4. Soyabeans \n5. Sweat potato"))
 			return
 
 		case "1*1*1":
