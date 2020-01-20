@@ -12,6 +12,8 @@ func ussd_callback(w http.ResponseWriter, r *http.Request){
 	phone_number := r.FormValue("phoneNumber")
 	_ = fmt.Sprintf("%s,%s,%s",session_id,service_code,phone_number)
 	text := r.FormValue("text")
+
+	//you can write your logic here
 	if len(text) == 0{
 		w.Write([]byte("CON Welcome to Agrox, Chose your language \n1. English \n2. Yoruba \n3. Igbo \n4. Hausa"))
 		return
@@ -67,6 +69,7 @@ func main(){
 	if !ok {
 		port = "8080"
 	}
+
 	fmt.Println("This is a ussd application hosted using africastalking ussd platform, ")
 	http.HandleFunc("/",ussd_callback)
 	log.Fatal(http.ListenAndServe(":"+port,nil))
